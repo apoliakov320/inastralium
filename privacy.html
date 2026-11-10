@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — inastralium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+</head>
+<body class="antialiased overflow-x-hidden min-h-screen flex flex-col bg-[#0A0C10] text-[#F4F4F5] font-sans text-left">
+
+  <!-- Вставляем шапку (в ней уже есть бургер, меню и луна) -->
+  {{> header }}
+
+  <!-- Контент -->
+  <main class="flex-1 w-full pt-32 pb-16 md:pt-40 md:pb-24 z-10 relative">
+    
+    <!-- Обертка для центрирования колонки с контентом -->
+    <div class="max-w-3xl mx-auto px-6 w-full">
+      
+      <!-- Заголовок по центру -->
+      <div class="text-center mb-8 md:mb-12 w-full">
+        <h1 class="font-serif text-3xl md:text-5xl font-light text-[#F4F4F5] tracking-[0.02em]">
+          Политика конфиденциальности
+        </h1>
+      </div>
+
+      <!-- Текст слева внутри отцентрированного блока -->
+      <div class="space-y-6 text-[#A3A3A3] font-serif leading-[1.8] tracking-wide text-base md:text-lg text-left">
+        
+        <p>Настоящая Политика конфиденциальности персональных данных (далее — Политика) действует в отношении всей информации, которую платформа <strong class="text-[#F4F4F5]">inastralium</strong> (далее — Платформа) может получить о Пользователе во время использования сайта.</p>
+
+        <h2 class="text-2xl text-[#F4F4F5] mt-10 mb-4 font-normal">1. Какие данные мы собираем</h2>
+        <p>При использовании инструментов Платформы (астрология, нумерология, Таро) мы запрашиваем следующие данные:</p>
+        <ul class="list-disc list-inside space-y-2 ml-4">
+          <li>Дата рождения;</li>
+          <li>Время рождения (опционально, для составления натальной карты);</li>
+          <li>Имя и место рождения.</li>
+        </ul>
+        <p>Также для работы автокомплита городов используется открытый API (Open-Meteo). Мы не собираем IP-адреса и cookie-файлы для рекламных или аналитических целей.</p>
+
+        <h2 class="text-2xl text-[#F4F4F5] mt-10 mb-4 font-normal">2. Как мы используем ваши данные</h2>
+        <p>Введенные вами данные используются <strong class="text-[#F4F4F5]">исключительно в момент составления расчета</strong> (карты, профиля или анализа). Для генерации текста мы передаем обезличенные данные (дату рождения и знак зодиака) в сторонний API нейросети (Groq). <strong class="text-[#F4F4F5]">Мы не сохраняем ваши данные в базах данных и не храним их на сервере</strong> после завершения сессии.</p>
+        <p>Мы не передаем ваши данные третьим лицам в маркетинговых целях.</p>
+
+        <h2 class="text-2xl text-[#F4F4F5] mt-10 mb-4 font-normal">3. Согласие и его отзыв</h2>
+        <p>Отправляя форму с данными, вы даете явное согласие на их обработку в соответствии с настоящей Политикой. Поскольку мы не храним данные, вам не нужно отзывать согласие — после закрытия страницы данные больше не находятся у нас.</p>
+
+        <h2 class="text-2xl text-[#F4F4F5] mt-10 mb-4 font-normal">4. Защита данных</h2>
+        <p>Мы используем современные методы шифрования (HTTPS) при передаче данных от вашего браузера до Платформы. Ваши данные не хранятся на наших серверах, поэтому доступ к ним третьих лиц исключен.</p>
+
+        <h2 class="text-2xl text-[#F4F4F5] mt-10 mb-4 font-normal">5. Изменения в Политике</h2>
+        <p>Мы оставляем за собой право вносить изменения в данную Политику. Актуальная версия всегда доступна на этой странице.</p>
+
+        <p class="mt-12 text-sm opacity-50 italic">Последнее обновление: <span id="current-date"></span></p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Вставляем футер -->
+  {{> footer }}
+
+  <!-- Единый скрипт для всех страниц -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

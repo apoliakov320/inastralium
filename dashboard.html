@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Твой дашборд — inastralium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+</head>
+
+<body class="antialiased min-h-screen flex flex-col relative bg-[#0A0C10] text-[#F4F4F5] font-sans" style="overflow-x: hidden;">
+
+  <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#D4C4A8]/5 blur-[120px] rounded-full"></div>
+  </div>
+
+  <!-- Вставляем шапку (в ней уже есть меню и луна) -->
+  {{> header }}
+
+  <main class="flex-1 flex flex-col items-center justify-start pt-28 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6 w-full max-w-5xl mx-auto z-10">
+
+    <!-- ЗАГОЛОВОК -->
+    <div class="text-center mb-10 md:mb-14 w-full">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="h-px w-10 sm:w-12 bg-gradient-to-r from-transparent to-[#D4C4A8]/40"></div>
+        <span class="text-[#D4C4A8] text-[0.65rem] sm:text-xs tracking-[0.3em] uppercase font-serif">Анализ завершен</span>
+        <div class="h-px w-10 sm:w-12 bg-gradient-to-l from-transparent to-[#D4C4A8]/40"></div>
+      </div>
+      <h1 id="user-title" class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#F4F4F5] font-light mb-5 tracking-wide break-words max-w-full px-2">Загрузка...</h1>
+      <p id="user-data" class="text-[#A3A3A3] font-serif text-base sm:text-lg tracking-wide"></p>
+    </div>
+
+    <!-- СЕТКА КАРТОЧЕК -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 w-full items-stretch">
+
+      <!-- Блок Матрицы -->
+      <div class="bg-[#050814]/40 border border-[#D4C4A8]/20 p-7 sm:p-8 md:p-10 rounded-xl backdrop-blur-sm group hover:border-[#D4C4A8]/40 transition-colors duration-500 relative overflow-hidden flex flex-col h-full">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4C4A8]/5 blur-[40px] rounded-full pointer-events-none"></div>
+
+        <h2 class="relative z-10 font-serif text-2xl sm:text-3xl md:text-4xl text-[#D4C4A8] mb-5">Матрица Судьбы</h2>
+        <div class="relative z-10 w-full h-px bg-gradient-to-r from-[#D4C4A8]/30 to-transparent mb-6 md:mb-8"></div>
+
+        <div class="relative z-10 flex flex-col flex-1">
+          <p class="text-[#A3A3A3] text-xs uppercase tracking-widest mb-2">Твой главный Аркан</p>
+          
+          <div class="flex items-center mb-2 min-h-[2.5rem] md:min-h-[3.5rem]">
+            <p id="arcana-number" class="font-serif text-4xl md:text-5xl text-white leading-tight">...</p>
+          </div>
+          
+          <div class="h-10 md:h-12 flex items-start mb-6">
+            <p class="text-[0.65rem] text-[#D4C4A8]/60 uppercase tracking-wider">Энергия, заложенная при рождении</p>
+          </div>
+
+          <div class="text-[#A3A3A3] font-serif leading-[1.8] text-sm sm:text-base md:text-lg">
+            <p id="arcana-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок Зодиака -->
+      <div class="bg-[#050814]/40 border border-[#D4C4A8]/20 p-7 sm:p-8 md:p-10 rounded-xl backdrop-blur-sm group hover:border-[#D4C4A8]/40 transition-colors duration-500 relative overflow-hidden flex flex-col h-full">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4C4A8]/5 blur-[40px] rounded-full pointer-events-none"></div>
+
+        <h2 class="relative z-10 font-serif text-2xl sm:text-3xl md:text-4xl text-[#D4C4A8] mb-5">Твой знак зодиака</h2>
+        <div class="relative z-10 w-full h-px bg-gradient-to-r from-[#D4C4A8]/30 to-transparent mb-6 md:mb-8"></div>
+
+        <div class="relative z-10 flex flex-col flex-1">
+          <p class="text-[#A3A3A3] text-xs uppercase tracking-widest mb-2">Солнечный знак</p>
+          
+          <div class="flex items-center mb-2 min-h-[2.5rem] md:min-h-[3.5rem]">
+            <p id="zodiac-sign" class="font-serif text-4xl md:text-5xl text-white leading-tight">...</p>
+          </div>
+          
+          <div class="h-10 md:h-12 flex items-start mb-6">
+            <p class="text-[0.65rem] text-[#D4C4A8]/60 uppercase tracking-wider">Твоя базовая суть</p>
+          </div>
+
+          <div class="text-[#A3A3A3] font-serif leading-[1.8] text-sm sm:text-base md:text-lg">
+            <p id="zodiac-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок Таро -->
+      <div class="md:col-span-2 bg-[#050814]/40 border border-[#D4C4A8]/20 p-7 sm:p-8 md:p-10 rounded-xl backdrop-blur-sm group hover:border-[#D4C4A8]/40 transition-colors duration-500 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4C4A8]/5 blur-[40px] rounded-full pointer-events-none"></div>
+
+        <h2 class="relative z-10 font-serif text-2xl sm:text-3xl md:text-4xl text-[#D4C4A8] mb-5">Карта твоего запроса</h2>
+        <div class="relative z-10 w-full h-px bg-gradient-to-r from-[#D4C4A8]/30 to-transparent mb-6 md:mb-8"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+          <div id="tarot-image" class="w-32 h-48 border border-[#D4C4A8]/40 bg-[#0A0C10] rounded-md flex items-center justify-center shadow-[0_0_20px_rgba(212,196,168,0.1)] shrink-0 overflow-hidden mx-auto md:mx-0">
+            <span class="text-4xl text-[#D4C4A8]">?</span>
+          </div>
+
+          <div class="flex-1 text-center md:text-left flex flex-col justify-center self-center w-full">
+            <p class="text-[#A3A3A3] text-xs uppercase tracking-widest mb-2">Вытянутая карта из колоды</p>
+            <p id="tarot-name" class="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-4 md:mb-6">...</p>
+            
+            <div class="text-[#A3A3A3] font-serif leading-[1.8] text-sm sm:text-base md:text-lg">
+              <p id="tarot-meaning"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- БЛОК ПОЛНОЙ КОНСУЛЬТАЦИИ -->
+    <div class="mt-16 md:mt-24 w-full bg-gradient-to-b from-[#121626]/80 to-[#0A0C10]/80 border border-[#D4C4A8]/30 p-8 md:p-14 rounded-2xl relative overflow-hidden group">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-[#D4C4A8]/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
+
+        <!-- ЛЕВАЯ ЧАСТЬ: Текст строго по центру своей колонки -->
+        <div class="flex flex-col items-center text-center w-full">
+          <h3 class="w-full font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-[#F4F4F5] mb-6 leading-[1.1] tracking-[0.05em]">
+            Хочешь узнать больше?
+          </h3>
+          <p class="w-full max-w-[480px] mx-auto text-[#A3A3A3] text-sm sm:text-base md:text-lg font-serif leading-[1.8] tracking-wide">
+            Это был базовый анализ на основе ИИ. Сейчас ты видишь только свой главный Аркан. Полная консультация включает в себя расчет всех 8 арканов твоей Матрицы Судьбы, подробную натальную карту с домами и аспектами, а также индивидуальные рекомендации на год вперед.
+          </p>
+        </div>
+
+        <!-- ПРАВАЯ ЧАСТЬ: Кнопка -->
+        <div class="flex items-center justify-center lg:justify-end w-full">
+          
+          <a href="https://t.me/inastralium_bot" target="_blank"
+             class="group/btn relative inline-flex flex-col items-center justify-center w-full max-w-[280px] aspect-[2.5/1] sm:aspect-auto sm:py-6
+                    bg-[#0A0C10] border border-[#D4C4A8]/30 hover:border-[#D4C4A8]/80
+                    transition-all duration-500 rounded-sm overflow-hidden cursor-pointer
+                    hover:shadow-[0_0_30px_rgba(212,196,168,0.15)] hover:-translate-y-1">
+
+            <!-- Анимированный блик -->
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4C4A8]/15 to-transparent
+                        -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></span>
+            
+            <!-- Мягкое свечение внутри -->
+            <span class="absolute inset-0 bg-[#D4C4A8]/0 group-hover/btn:bg-[#D4C4A8]/5 transition-colors duration-500"></span>
+
+            <!-- Внутренняя декоративная рамка -->
+            <span class="absolute inset-1.5 border border-transparent group-hover/btn:border-[#D4C4A8]/20 rounded-sm transition-colors duration-500 pointer-events-none"></span>
+
+            <!-- Контент -->
+            <div class="relative z-10 flex flex-col items-center gap-1.5 px-6">
+              <span class="text-[0.6rem] sm:text-[0.65rem] tracking-[0.25em] uppercase font-sans text-[#A3A3A3] group-hover/btn:text-[#D4C4A8] transition-colors duration-300">
+                Полная консультация
+              </span>
+              <span class="font-serif text-2xl sm:text-3xl font-medium text-[#F4F4F5] group-hover/btn:text-white transition-colors duration-300 tracking-wide drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]">
+                4 990 ₽
+              </span>
+            </div>
+
+          </a>
+          
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Вставляем футер -->
+  {{> footer }}
+
+  <!-- Подключаем только main.js -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

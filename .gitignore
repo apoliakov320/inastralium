@@ -1,0 +1,17 @@
+# Зависимости
+node_modules
+
+# Результат сборки
+dist
+dist-ssr
+
+# Локальные файлы с секретами
+.env
+.env.local
+.dev.vars
+.vscode/*
+!.vscode/extensions.json
+
+# Системный мусор
+.DS_Store
+Thumbs.db
