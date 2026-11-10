@@ -8,16 +8,16 @@ export default defineConfig({
     tailwindcss(),
     handlebars({
       // Указываем папку, где будут лежать шапка и футер
-      partialDirectory: resolve(__dirname, 'src/partials'),
+      partialDirectory: resolve(import.meta.dirname, 'src/partials'),
     }),
   ],
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        privacy: resolve(__dirname, 'privacy.html'),
-        offer: resolve(__dirname, 'offer.html'),
-        dashboard: resolve(__dirname, 'dashboard.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        privacy: resolve(import.meta.dirname, 'privacy.html'),
+        offer: resolve(import.meta.dirname, 'offer.html'),
+        dashboard: resolve(import.meta.dirname, 'dashboard.html'),
       },
     },
   },
