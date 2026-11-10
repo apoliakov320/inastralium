@@ -503,7 +503,7 @@ function initDashboard() {
       if (tarotImageDiv) {
           // Грузим WEBP с эффектом плавного появления
           tarotImageDiv.innerHTML = `<img src="/cards/${randomCard.id}.webp" 
-            class="w-full h-full object-cover rounded-md transition-all duration-1000 ease-out opacity-0 scale-105" 
+            class="w-full h-full object-contain rounded-md transition-all duration-1000 ease-out opacity-0 scale-105" 
             onload="this.classList.remove('opacity-0', 'scale-105'); this.classList.add('opacity-100', 'scale-100');"
             onerror="this.src='/tarot.webp'">`;
       }
